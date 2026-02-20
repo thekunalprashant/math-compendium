@@ -1,19 +1,27 @@
 ---
 layout: default
 ---
-
 <article class="post">
 
   <header class="post-header">
+    <div class="wrapper">
+      <h1 class="post-title">{{ page.title | escape }}</h1>
+      {% if page.description %}
+      <p class="post-description">{{ page.description }}</p>
+      {% endif %}
+    </div>
   </header>
 
   <div class="post-content">
     <div class="wrapper">
       {{ content }}
 
-      <div class="post-navigation">
-        {% assign topic_pages = site.pages | where_exp: "page", "page.path contains 'topics/'" | where_exp: "page",
-        "page.name == 'index.md'" | where_exp: "page", "page.url != '/topics/'" | sort: "title" %}
+      <div class="navigation-footer">
+        {% assign parts = page.path | split: "/" %}
+        {% if parts[0] == "subjects" %}
+        {% assign subject_dir = parts[0] | append: "/" | append: parts[1] %}
+        {% assign topic_pages = site.pages | where_exp: "p", "p.path contains subject_dir" | where_exp: "p", "p.name ==
+        'index.md'" | where_exp: "p", "p.url != '/math/'" | where_exp: "p", "p.url != '/subjects/'" | sort: "title" %}
 
         {% for tp in topic_pages %}
         {% if tp.url == page.url %}
@@ -29,33 +37,34 @@ layout: default
         {% endif %}
         {% endfor %}
 
-        <div class="topic-switcher">
+        <div class="nav-cards">
           {% if prevTopic %}
-          <div class="nav-direction prev">
-            <span class="nav-label">Previous Reading</span>
-            <a href="{{ prevTopic.url | relative_url }}" class="nav-card">
-              <span class="nav-arrow">←</span>
-              <span class="nav-title">{{ prevTopic.title }}</span>
-            </a>
+          <a href="{{ prevTopic.url | relative_url }}" class="nav-card">
+            <div class="nav-label">← Previous Reading</div>
+            <div class="nav-title">{{ prevTopic.title }}</div>
+          </a>
+          {% else %}
+          <div class="nav-card disabled">
+            <div class="nav-label">No Previous Topic</div>
           </div>
           {% endif %}
 
           {% if nextTopic %}
-          <div class="nav-direction next">
-            <span class="nav-label">Next Reading</span>
-            <a href="{{ nextTopic.url | relative_url }}" class="nav-card">
-              <span class="nav-title">{{ nextTopic.title }}</span>
-              <span class="nav-arrow">→</span>
-            </a>
+          <a href="{{ nextTopic.url | relative_url }}" class="nav-card">
+            <div class="nav-label">Next Reading →</div>
+            <div class="nav-title">{{ nextTopic.title }}</div>
+          </a>
+          {% else %}
+          <div class="nav-card disabled">
+            <div class="nav-label">No Further Reading</div>
           </div>
           {% endif %}
         </div>
+        {% endif %}
 
-        <hr class="nav-divider">
-
-        <a href="{{ '/' | relative_url }}" class="back-link">
-          <span class="back-arrow">←</span> Back to Home
-        </a>
+        <div style="text-align: center; margin-top: 32px;">
+          <a href="{{ " /" | relative_url }}" class="back-home">Back to Global Home</a>
+        </div>
       </div>
     </div>
   </div>

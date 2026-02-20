@@ -35,8 +35,18 @@ permalink: /topics/your-topic-name/
 ---
 ```
 
+<<<<<<< HEAD
 ## Guidelines
 - **Precision:** Use LaTeX for all mathematical expressions: $x^2 + y^2 = z^2$.
 - **Structure:** Always include a core principle followed by categorized examples.
 - **Focus:** Keep explanations competition-focused (optimized for speed and intuition).
 - **Automated Dating:** You don't need to specify a date; the system automatically uses the date your topic is published to the compendium.
+=======
+Guidelines
+Use clear examples with step-by-step solutions
+Include practice problems with solutions
+Keep explanations concise (competition-focused)
+Use LaTeX for math: $x^2 + y^2 = z^2$
+---
+```
+>>>>>>> 76cee06ab91442408751258beaf8a462d83d644b

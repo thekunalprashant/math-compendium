@@ -45,3 +45,74 @@
 .site-nav .page-link {
   margin-left: 1rem;
 }
+
+
+
+/* Topic cards on homepage */
+.topic-card {
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.topic-card:hover {
+  border-color: #0366d6;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.topic-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+}
+
+.topic-card h3 a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.topic-card h3 a:hover {
+  text-decoration: underline;
+}
+
+.topic-card p {
+  margin: 0 0 8px 0;
+  color: #586069;
+  font-size: 14px;
+}
+
+.topic-meta {
+  color: #6a737d;
+  font-size: 12px;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.page-header h1 {
+  margin: 0 0 8px 0;
+  font-size: 32px;
+}
+
+.page-header .description {
+  color: #586069;
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Content sections */
+.content-section {
+  margin-bottom: 32px;
+}
+
+.content-section h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eaecef;
+}

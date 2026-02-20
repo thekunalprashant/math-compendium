@@ -1,0 +1,13 @@
+title: "Math Compendium"
+description: "Competitive mathematics techniques and notes"
+theme: minima
+baseurl: ""
+url: "https://thekunalprashant.github.io"
+
+# Enable math rendering
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
+
+plugins:
+  - jekyll-feed

@@ -4,10 +4,23 @@ theme: minima
 baseurl: ""
 url: "https://thekunalprashant.github.io"
 
-# Enable math rendering
 markdown: kramdown
 kramdown:
   math_engine: mathjax
 
 plugins:
   - jekyll-feed
+
+# Words per minute for reading time calculation
+words_per_minute: 200
+
+# Navigation links
+header_pages:
+  - index.md
+  - topics/value-substitution/index.md
+
+# Theme settings
+minima:
+  skin: dark  # Options: classic, dark, solarized, solarized-dark
+  social_links:
+    github: thekunalprashant

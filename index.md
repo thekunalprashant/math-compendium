@@ -3,64 +3,33 @@ layout: home
 title: Math Compendium
 ---
 
-# Competitive Mathematics Notes
-
-Techniques, strategies, and problem-solving patterns for math competitions.
-
----
-
-## 🔥 Popular Topics
-
-{% assign popular = site.pages | where_exp: "page", "page.path contains 'topics/'" | where_exp: "page", "page.name == 'index.md'" | where: "popular", true %}
-{% if popular.size > 0 %}
-{% for topic in popular %}
-- **[{{ topic.title }}]({{ topic.url | relative_url }})** — {{ topic.description | default: "Competition math techniques" }}
-{% endfor %}
-{% else %}
-- **[Value Substitution]({{ '/topics/value-substitution/' | relative_url }})** — Master the art of solving complex problems in 12-30 seconds
-{% endif %}
+<div class="page-header">
+  <h1>Competitive Mathematics Notes</h1>
+  <p class="description">Techniques, strategies, and problem-solving patterns for math competitions.</p>
+</div>
 
 ---
 
-## 📚 All Topics (Newest First)
+## <a name="topics"></a>Topics
 
-{% assign topic_pages = site.pages | where_exp: "page", "page.path contains 'topics/'" | where_exp: "page", "page.name == 'index.md'" | sort: "date" | reverse %}
+{% assign topic_pages = site.pages | where_exp: "page", "page.path contains 'topics/'" | where_exp: "page", "page.name == 'index.md'" %}
 
-{% if topic_pages.size > 0 %}
 {% for topic in topic_pages %}
 {% assign word_count = topic.content | number_of_words %}
 {% assign read_time = word_count | divided_by: 200 %}
 {% if read_time == 0 %}{% assign read_time = 1 %}{% endif %}
 
-### [{{ topic.title }}]({{ topic.url | relative_url }}) {% if topic.popular %}🔥{% endif %}
+<div class="topic-card">
+  <h3><a href="{{ topic.url | relative_url }}">{{ topic.title }}</a></h3>
+  <p>{{ topic.description | default: "Competition math techniques" }}</p>
+  <div class="topic-meta">⏱️ {{ read_time }} min read</div>
+</div>
 
-{{ topic.description | default: "Competition math techniques" }}
-
-⏱️ {{ read_time }} min read {% if topic.date %}• {{ topic.date | date: "%B %Y" }}{% endif %}
-
----
 {% endfor %}
-{% else %}
-*No topics yet.*
-{% endif %}
 
 ---
 
-## 🚀 Coming Soon
-
-- Inequalities (AM-GM, Cauchy-Schwarz)
-- Combinatorics & Counting
-- Number Theory
-- Geometry Strategies
-
----
-
-## 🤝 Contribute
-
-Want to add a topic? [Learn how to contribute →]({{ '/about/' | relative_url }})
-
----
-
-## About
-
-Personal notes documenting competition math techniques. Built for quick reference and rapid review before contests.
+<div class="content-section">
+  <h2>Contribute</h2>
+  <p>Found an error or want to add a topic? <a href="https://github.com/thekunalprashant/math-compendium/fork" target="_blank">Fork on GitHub</a> and submit a pull request.</p>
+</div>

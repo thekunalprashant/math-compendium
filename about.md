@@ -33,3 +33,5 @@ Use clear examples with step-by-step solutions
 Include practice problems with solutions
 Keep explanations concise (competition-focused)
 Use LaTeX for math: $x^2 + y^2 = z^2$
+---
+```

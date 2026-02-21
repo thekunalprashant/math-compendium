@@ -10,11 +10,15 @@ layout: default
         {% if page.posted_at %}
         <span>Posted on {{ page.posted_at | date: "%B %d, %Y at %I:%M %p" }}</span>
         {% endif %}
+        {% if page.author %}
+        {% if page.posted_at %}<span class="meta-separator">&bull;</span>{% endif %}
+        <span>by {{ page.author }}</span>
+        {% endif %}
         {% if page.modified_at %}
         {% assign posted_formatted = page.posted_at | date: "%Y%m%d%H%M" %}
         {% assign modified_formatted = page.modified_at | date: "%Y%m%d%H%M" %}
         {% if posted_formatted != modified_formatted %}
-        {% if page.posted_at %}<span class="meta-separator">&bull;</span>{% endif %}
+        {% if page.posted_at or page.author %}<span class="meta-separator">&bull;</span>{% endif %}
         <span>Last modified on {{ page.modified_at | date: "%B %d, %Y at %I:%M %p" }}</span>
         {% endif %}
         {% endif %}
@@ -30,9 +34,9 @@ layout: default
       {{ content }}
 
       <div class="navigation-footer">
-        {% assign parts = page.path | split: "/" %}
+        {% assign parts = page.path | split: '/' %}
         {% if parts[0] == "subjects" %}
-        {% assign subject_dir = "subjects/" | append: parts[1] %}
+        {% assign subject_dir = 'subjects/' | append: parts[1] %}
 
         {% assign topic_pages = site.pages | where_exp: "p", "p.path contains subject_dir" | where_exp: "p", "p.name ==
         'index.md'" | where_exp: "p", "p.url != '/subjects/'" | where_exp: "p", "p.url != site.baseurl" | where_exp:
@@ -76,7 +80,7 @@ layout: default
       {% endif %}
 
       <div style="text-align: center; margin-top: 48px;">
-        <a href="{{ " /" | relative_url }}" class="back-home">Back to Global Home</a>
+        <a href="{{  '/' | relative_url }}" class="back-home">Back to Global Home</a>
       </div>
     </div>
   </div>

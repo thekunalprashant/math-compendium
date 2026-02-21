@@ -6,6 +6,10 @@ Jekyll::Hooks.register :posts, :post_init do |page|
   setup_git_metadata(page)
 end
 
+Jekyll::Hooks.register :documents, :post_init do |page|
+  setup_git_metadata(page)
+end
+
 def setup_git_metadata(page)
   # Standardize path for Git - ensure absolutely relative to repo root
   file_path = page.path

@@ -1,0 +1,12 @@
+- title: Mathematics
+  url: /subjects/math/
+  description: Advanced techniques and strategies for competitive math (AMC, AIME, Olympiads).
+  meta: Core Subject • Comprehensive Notes
+- title: Computer Science
+  url: "#"
+  description: Low-level systems, algorithms, and software engineering patterns.
+  meta: Future Addition • Under Development
+- title: History & Humanities
+  url: "#"
+  description: Chronological analysis, cultural impact studies, and historical timelines.
+  meta: Future Addition • Planned

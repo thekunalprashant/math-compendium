@@ -4,6 +4,7 @@ title: Value Substitution
 description: Master the art of solving complex problems in 12-30 seconds
 category: Problem Solving Strategies
 popular: true
+author: Kunal Prashant
 permalink: /topics/value-substitution/
 ---
 

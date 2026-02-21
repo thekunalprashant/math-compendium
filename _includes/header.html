@@ -1,13 +1,13 @@
 ﻿<header class="site-header" role="banner">
   <div class="wrapper">
-    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">Compendium Global</a>
+    <a class="site-title" rel="author" href="{{ '/' | relative_url }}">StudyBase</a>
 
     <nav class="site-nav">
       <div class="trigger">
-        <a class="page-link" href="{{ "/" | relative_url }}">Home</a>
-        <a class="page-link" href="{{ "/subjects/" | relative_url }}">Subjects</a>
-        <a class="page-link" href="{{ "/about/" | relative_url }}">About</a>
-        <a class="page-link" href="https://github.com/thekunalprashant/math-compendium" target="_blank">Contribute</a>
+        {% for item in site.data.navigation.items %}
+        <a class="page-link" href="{{ item.url | relative_url }}" {% if item.external %}target="_blank" {% endif %}>{{
+          item.title }}</a>
+        {% endfor %}
       </div>
     </nav>
   </div>

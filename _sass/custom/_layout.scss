@@ -1,0 +1,115 @@
+.site-header {
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    min-height: var(--header-height);
+}
+
+.site-header .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.site-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    transition: opacity 0.2s;
+}
+
+.site-title:hover {
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.site-nav .page-link {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.site-nav .page-link:hover {
+    color: var(--primary);
+    background: var(--primary-glow);
+    text-decoration: none;
+}
+
+.page-content {
+    padding: 60px 0;
+}
+
+.hero {
+    padding: 120px 0 80px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 24px;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    color: var(--text);
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.home-page .hero {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 120px 24px 80px;
+}
+
+.site-footer {
+    border-top: 1px solid var(--border);
+    background: transparent;
+    padding: 40px 0;
+    margin-top: auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.footer-left p {
+    margin: 0;
+}
+
+.footer-right a {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-left: 24px;
+    transition: color 0.2s;
+}
+
+.footer-right a:hover {
+    color: var(--primary);
+}
+
+@media screen and (max-width: 600px) {
+    .footer-content {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 24px;
+    }
+    .footer-right a {
+        margin: 0 12px;
+    }
+}

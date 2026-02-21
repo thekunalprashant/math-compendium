@@ -1,0 +1,46 @@
+---
+layout: default
+---
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      {%- assign date_format = "%B %-d, %Y at %I:%M %p" -%}
+      {% if page.posted_at %}
+      <time class="dt-published" datetime="{{ page.posted_at | date_to_xmlschema }}" itemprop="datePublished">
+        Posted on {{ page.posted_at | date: date_format }}
+      </time>
+      {% else %}
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        Posted on {{ page.date | date: date_format }}
+      </time>
+      {% endif %}
+
+      {% if page.modified_at %}
+      {% assign posted_formatted = page.posted_at | date: "%Y%m%d%H%M" %}
+      {% assign modified_formatted = page.modified_at | date: "%Y%m%d%H%M" %}
+      {% if posted_formatted != modified_formatted %}
+      <span class="meta-separator">•</span>
+      <time class="dt-modified" datetime="{{ page.modified_at | date_to_xmlschema }}" itemprop="dateModified">
+        Last modified on {{ page.modified_at | date: date_format }}
+      </time>
+      {% endif %}
+      {% endif %}
+      {%- if page.author -%}
+      <span class="meta-separator">•</span> <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span
+          class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
+      {%- endif -%}
+    </p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {%- if site.disqus.shortname -%}
+  {%- include disqus_comments.html -%}
+  {%- endif -%}
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>

@@ -3,6 +3,7 @@ layout: page
 title: Inequalities
 description: AM-GM, Cauchy-Schwarz, and rearrangement inequality
 category: Essential Algebra
+author: Kunal Prashant
 permalink: /topics/inequalities/
 ---
 
